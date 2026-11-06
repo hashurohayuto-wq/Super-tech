@@ -1,0 +1,616 @@
+
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Super Tech | Дижитал бүтээл</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #080e1b;
+    --card: #101b30;
+    --blue: #326bff;
+    --text: #ffffff;
+    --muted: #a1aec5;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* NAVBAR */
+
+header {
+    padding: 22px 0;
+    border-bottom: 1px solid #1b2940;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: var(--blue);
+}
+
+nav a {
+    color: var(--muted);
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: white;
+}
+
+/* HERO */
+
+.hero {
+    text-align: center;
+    padding: 110px 10px;
+}
+
+.tag {
+    color: #72a0ff;
+    font-size: 13px;
+    letter-spacing: 3px;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 7vw, 70px);
+    line-height: 1.1;
+    margin: 20px 0;
+}
+
+.hero h1 span {
+    color: var(--blue);
+}
+
+.hero p {
+    color: var(--muted);
+    max-width: 550px;
+    margin: 0 auto 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 25px;
+    background: var(--blue);
+    color: white;
+    border: none;
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.btn:hover {
+    background: #5685ff;
+    transform: translateY(-2px);
+}
+
+/* SECTIONS */
+
+section {
+    padding: 75px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.section-title p {
+    color: var(--muted);
+}
+
+/* SERVICES */
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(230px, 1fr)
+    );
+    gap: 20px;
+}
+
+.service {
+    background: var(--card);
+    padding: 27px;
+    border: 1px solid #20304c;
+    border-radius: 12px;
+    transition: .25s;
+}
+
+.service:hover {
+    transform: translateY(-5px);
+    border-color: var(--blue);
+}
+
+.icon {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.service h3 {
+    margin-bottom: 8px;
+}
+
+.service p {
+    color: var(--muted);
+    font-size: 14px;
+    min-height: 45px;
+}
+
+.price {
+    font-size: 21px;
+    color: #75a0ff;
+    font-weight: bold;
+    margin: 18px 0;
+}
+
+.service button {
+    width: 100%;
+}
+
+/* ABOUT */
+
+.about {
+    background: #0c1527;
+    text-align: center;
+}
+
+.about p {
+    max-width: 650px;
+    margin: auto;
+    color: var(--muted);
+}
+
+/* ORDER */
+
+.order-box {
+    max-width: 650px;
+    margin: auto;
+    padding: 30px;
+    background: var(--card);
+    border: 1px solid #263858;
+    border-radius: 14px;
+}
+
+.order-box label {
+    display: block;
+    margin: 15px 0 7px;
+    font-size: 14px;
+}
+
+.order-box input,
+.order-box select,
+.order-box textarea {
+    width: 100%;
+    padding: 13px;
+    background: #080f20;
+    color: white;
+    border: 1px solid #2b3b57;
+    border-radius: 7px;
+    outline: none;
+    font-size: 15px;
+}
+
+.order-box input:focus,
+.order-box select:focus,
+.order-box textarea:focus {
+    border-color: var(--blue);
+}
+
+.order-box textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+.total {
+    margin: 20px 0;
+    padding: 17px;
+    background: #172746;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.total strong {
+    color: #75a0ff;
+}
+
+.submit-btn {
+    width: 100%;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.note {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 12px;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 30px 10px;
+    border-top: 1px solid #1b2940;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* MOBILE */
+
+@media(max-width: 600px) {
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav a {
+        margin: 0 7px;
+    }
+
+    .hero {
+        padding: 80px 10px;
+    }
+
+    .order-box {
+        padding: 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container">
+<nav>
+
+    <div class="logo">Super Tech<span>.</span></div>
+
+    <div>
+        <a href="#home">Нүүр</a>
+        <a href="#services">Үйлчилгээ</a>
+        <a href="#about">Бидний тухай</a>
+        <a href="#order">Захиалга</a>
+    </div>
+
+</nav>
+</div>
+</header>
+
+<main>
+
+<!-- НҮҮР -->
+
+<section class="hero" id="home">
+<div class="container">
+
+    <div class="tag">ДИЖИТАЛ БҮТЭЭЛИЙН СТУДИ</div>
+
+    <h1>
+        Бид таны санааг<br>
+        <span>Дижитал бүтээл болгоно.</span>
+    </h1>
+
+    <p>
+        Бид график дизайн, видео эвлүүлэг
+        болон дижитал бүтээгдэхүүнээр
+        таны санааг бодит бүтээл болгоно.
+    </p>
+
+    <a href="#services" class="btn">
+        Үйлчилгээнүүд үзэх →
+    </a>
+
+</div>
+</section>
+
+<!-- ҮЙЛЧИЛГЭЭ -->
+
+<section id="services">
+<div class="container">
+
+    <div class="section-title">
+        <h2>Манай үйлчилгээнүүд</h2>
+        <p>Таны бизнест зориулсан бүтээлч шийдлүүд.</p>
+    </div>
+
+    <div class="services">
+
+        <div class="service">
+            <div class="icon">🎨</div>
+            <h3>Лого дизайн</h3>
+            <p>Энгийн, бүтээлч брэндийн лого.</p>
+            <div class="price">20,000₮</div>
+            <button class="btn" onclick="choose('Лого дизайн')">
+                Захиалах
+            </button>
+        </div>
+
+        <div class="service">
+            <div class="icon">🖼️</div>
+            <h3>Постер дизайн</h3>
+            <p>Сошиал медиад зориулсан постер.</p>
+            <div class="price">15,000₮</div>
+            <button class="btn" onclick="choose('Постер дизайн')">
+                Захиалах
+            </button>
+        </div>
+
+        <div class="service">
+            <div class="icon">📢</div>
+            <h3>Баннер дизайн</h3>
+            <p>Сурталчилгааны мэргэжлийн баннер.</p>
+            <div class="price">15,000₮</div>
+            <button class="btn" onclick="choose('Баннер дизайн')">
+                Захиалах
+            </button>
+        </div>
+
+        <div class="service">
+            <div class="icon">📱</div>
+            <h3>Сошиал медиа багц</h3>
+            <p>Сошиал хуудсанд зориулсан дизайны багц.</p>
+            <div class="price">40,000₮</div>
+            <button class="btn" onclick="choose('Сошиал медиа дизайн багц')">
+                Захиалах
+            </button>
+        </div>
+
+        <div class="service">
+            <div class="icon">🎬</div>
+            <h3>Видео эвлүүлэг</h3>
+            <p>Богино видео, шилжилт болон эффект.</p>
+            <div class="price">20,000₮</div>
+            <button class="btn" onclick="choose('Видео эвлүүлэг')">
+                Захиалах
+            </button>
+        </div>
+
+        <div class="service">
+            <div class="icon">💬</div>
+            <h3>Хадмал орчуулга</h3>
+            <p>Таны видеонд хадмал текст бэлтгэнэ.</p>
+            <div class="price">10,000₮</div>
+            <button class="btn" onclick="choose('Хадмал орчуулга')">
+                Захиалах
+            </button>
+        </div>
+
+        <div class="service">
+            <div class="icon">🌌</div>
+            <h3>Дэлгэцийн зураг</h3>
+            <p>Утас болон компьютерт зориулсан зураг.</p>
+            <div class="price">5,000₮</div>
+            <button class="btn" onclick="choose('Дэлгэцийн зураг')">
+                Захиалах
+            </button>
+        </div>
+
+        <div class="service">
+            <div class="icon">📒</div>
+            <h3>Дижитал төлөвлөгч</h3>
+            <p>Төлөвлөгч болон бүтээмжийн загвар.</p>
+            <div class="price">10,000₮</div>
+            <button class="btn" onclick="choose('Дижитал төлөвлөгч')">
+                Захиалах
+            </button>
+        </div>
+
+    </div>
+</div>
+</section>
+
+<!-- БИДНИЙ ТУХАЙ -->
+
+<section class="about" id="about">
+<div class="container">
+
+    <div class="section-title">
+        <h2>Super Tech-ийн тухай</h2>
+    </div>
+
+    <p>
+        Super Tech бол график дизайн,
+        видео эвлүүлэг болон бүтээлч дижитал
+        бүтээгдэхүүнд төвлөрсөн дижитал студи юм.
+        Бидний зорилго бол таны санааг бодит бүтээл болгох.
+    </p>
+
+</div>
+</section>
+
+<!-- ЗАХИАЛГЫН ФОРМ -->
+
+<section id="order">
+<div class="container">
+
+    <div class="section-title">
+        <h2>Захиалга өгөх</h2>
+        <p>Өөрийн төслийн талаар бидэнд мэдээлэл өгөөрэй.</p>
+    </div>
+
+    <div class="order-box">
+
+        <form
+            id="orderForm"
+            action="https://formsubmit.co/hashurohayuto@gmail.com"
+            method="POST">
+
+            <!-- ИМЭЙЛИЙН ТОХИРГОО -->
+
+            <input type="hidden" name="_subject"
+            value="Super Tech-ийн - Шинэ захиалга">
+
+            <input type="hidden" name="_template"
+            value="table">
+
+            <!-- ЗАХИАЛАГЧИЙН МЭДЭЭЛЭЛ -->
+
+            <label>Таны нэр</label>
+            <input
+                type="text"
+                name="Захиалагчийн нэр"
+                placeholder="Нэрээ оруулна уу"
+                required>
+
+            <label>Имэйл хаяг</label>
+            <input
+                type="email"
+                name="Захиалагчийн имэйл"
+                placeholder="example@gmail.com"
+                required>
+
+            <label>Үйлчилгээ сонгох</label>
+
+            <select
+                name="Үйлчилгээ"
+                id="service"
+                onchange="updatePrice()"
+                required>
+
+                <option value="">Үйлчилгээ сонгоно уу</option>
+                <option value="Лого дизайн">Лого дизайн</option>
+                <option value="Постер дизайн">Постер дизайн</option>
+                <option value="Баннер дизайн">Баннер дизайн</option>
+                <option value="Сошиал медиа дизайн багц">Сошиал медиа дизайн багц</option>
+                <option value="Видео эвлүүлэг">Видео эвлүүлэг</option>
+                <option value="Хадмал орчуулга">Хадмал орчуулга</option>
+                <option value="Дэлгэцийн зураг">Дэлгэцийн зураг</option>
+                <option value="Дижитал төлөвлөгч">Дижитал төлөвлөгч</option>
+
+            </select>
+
+            <label>Төслийн дэлгэрэнгүй</label>
+
+            <textarea
+                name="Төслийн дэлгэрэнгүй"
+                placeholder="Ямар бүтээл хийлгэхийг хүсэж байгаагаа тайлбарлана уу..."
+                required></textarea>
+
+            <div class="total">
+                <span>Тооцоолсон үнэ</span>
+                <strong id="price">0₮</strong>
+            </div>
+
+            <input
+                type="hidden"
+                name="Тооцоолсон үнэ"
+                id="priceInput"
+                value="0₮">
+
+            <button type="submit" class="btn submit-btn">
+                Захиалга илгээх →
+            </button>
+
+            <p class="note">
+                Таны захиалга студийн имэйл рүү илгээгдэнэ.
+            </p>
+
+        </form>
+
+    </div>
+</div>
+</section>
+
+</main>
+
+<footer>
+    <p>© Super Tech. Бүх эрх хуулиар хамгаалагдсан.</p>
+    <p>Бүтээлч сэтгэлгээгээр бүтээв.</p>
+</footer>
+
+<script>
+
+// ҮЙЛЧИЛГЭЭНИЙ ҮНЭ
+
+const prices = {
+    "Лого дизайн": 20000,
+    "Постер дизайн": 15000,
+    "Баннер дизайн": 15000,
+    "Сошиал медиа дизайн багц": 40000,
+    "Видео эвлүүлэг": 20000,
+    "Хадмал орчуулга": 10000,
+    "Дэлгэцийн зураг": 5000,
+    "Дижитал төлөвлөгч": 10000
+};
+
+// ҮНИЙГ ШИНЭЧЛЭХ
+
+function updatePrice() {
+
+    const service =
+        document.getElementById("service").value;
+
+    const price = prices[service] || 0;
+
+    const formattedPrice =
+        price.toLocaleString("en-US") + "₮";
+
+    document.getElementById("price").textContent =
+        formattedPrice;
+
+    document.getElementById("priceInput").value =
+        formattedPrice;
+}
+
+// ҮЙЛЧИЛГЭЭ СОНГОХ
+
+function choose(serviceName) {
+
+    document.getElementById("service").value =
+        serviceName;
+
+    updatePrice();
+
+    document.getElementById("order").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+</script>
+
+</body>
+</html>
